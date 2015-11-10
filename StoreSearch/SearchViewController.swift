@@ -20,6 +20,9 @@ class SearchViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         tableView.contentInset = UIEdgeInsets(top: 64, left: 0, bottom: 0, right: 0)
+        let cellNib = UINib(nibName: "SearchResultCell", bundle: nil)
+        tableView.registerNib(cellNib, forCellReuseIdentifier: "SearchResultCell")
+        tableView.rowHeight = 80
     }
 
     override func didReceiveMemoryWarning() {
@@ -64,18 +67,14 @@ extension SearchViewController: UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cellIdentifier = "SearchResultCell"
-        var cell: UITableViewCell! = tableView.dequeueReusableCellWithIdentifier(cellIdentifier)
-        if cell == nil {
-            cell = UITableViewCell(style: .Subtitle, reuseIdentifier: cellIdentifier)
-        }
+        let cell = tableView.dequeueReusableCellWithIdentifier("SearchResultCell", forIndexPath:indexPath) as! SearchResultCell
         if searchResults.count == 0 {
-            cell.textLabel!.text = "(Nothing Found)"
-            cell.detailTextLabel!.text = ""
+            cell.nameLabel.text = "(Nothing Found)"
+            cell.artistNameLabel.text = ""
         } else {
             let searchResult = searchResults[indexPath.row]
-            cell.textLabel!.text = searchResult.name
-            cell.detailTextLabel!.text = searchResult.artistName
+            cell.nameLabel.text = searchResult.name
+            cell.artistNameLabel.text = searchResult.artistName
         }
         return cell
     }
