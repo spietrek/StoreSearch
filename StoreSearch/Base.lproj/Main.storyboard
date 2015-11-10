@@ -16,9 +16,41 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="interactive" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bkp-6D-jmE">
+                                <rect key="frame" x="0.0" y="20" width="600" height="580"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="xht-uu-GB6"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="Lwm-eg-NvQ"/>
+                                </connections>
+                            </tableView>
+                            <searchBar contentMode="redraw" placeholder="App name, artist, song, album, e-book" translatesAutoresizingMaskIntoConstraints="NO" id="4jr-ug-RuC">
+                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
+                                <animations/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="4kq-E1-ZUQ"/>
+                                </connections>
+                            </searchBar>
+                        </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="bkp-6D-jmE" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="81v-3c-ECB"/>
+                            <constraint firstAttribute="trailing" secondItem="4jr-ug-RuC" secondAttribute="trailing" id="C6B-s1-i4R"/>
+                            <constraint firstItem="4jr-ug-RuC" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="GQW-1b-5kI"/>
+                            <constraint firstAttribute="trailing" secondItem="bkp-6D-jmE" secondAttribute="trailing" id="QCn-Ac-maI"/>
+                            <constraint firstItem="bkp-6D-jmE" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="afe-Ho-rBg"/>
+                            <constraint firstItem="4jr-ug-RuC" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="jUZ-rv-QIL"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="bkp-6D-jmE" secondAttribute="bottom" id="pa1-6F-0iQ"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="searchBar" destination="4jr-ug-RuC" id="yqr-vq-49m"/>
+                        <outlet property="tableView" destination="bkp-6D-jmE" id="Syv-Th-BYI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
